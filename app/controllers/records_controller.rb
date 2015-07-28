@@ -3,6 +3,10 @@ class RecordsController < ApplicationController
     @records = Record.all
   end
 
+  def new
+    @record = Record.new
+  end
+
   def create
     @record = Record.new(record_params)
 
