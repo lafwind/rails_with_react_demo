@@ -1,4 +1,5 @@
 @RecordForm = React.createClass
+
   getInitialState: ->
     title: ''
     date: ''
