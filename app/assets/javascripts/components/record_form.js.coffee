@@ -45,7 +45,7 @@
           onChange: @handleChange
 
       React.DOM.div
-        className: 'form-control'
+        className: 'form-group'
         React.DOM.input
           type: 'number'
           className: 'form-control'
