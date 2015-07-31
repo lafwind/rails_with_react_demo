@@ -1,4 +1,6 @@
 class RecordsController < ApplicationController
+  before_action :find_record, only: [:update, :destroy]
+
   def index
     @records = Record.all
   end
@@ -18,7 +20,6 @@ class RecordsController < ApplicationController
   end
 
   def update
-    @record = Record.find(params[:id])
     if @record.update(record_params)
       render json: @record
     else
@@ -27,7 +28,6 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    @record = Record.find(params[:id])
     @record.destroy
     head :no_content
   end
@@ -36,6 +36,10 @@ class RecordsController < ApplicationController
 
   def record_params
     params.require(:record).permit(:title, :amount, :date)
+  end
+
+  def find_record
+    @record = Record.find(params[:id])
   end
 
 end
