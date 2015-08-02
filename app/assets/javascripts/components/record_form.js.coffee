@@ -14,7 +14,6 @@
     $.post '/records', { record: @state }, (data) =>
       @props.handleNewRecord data
       @setState @getInitialState()
-      , 'JSON'
 
   valid: ->
     @state.title && @state.date && @state.amount
